@@ -1,4 +1,4 @@
-arg=$(cat $(ns -t) | sort | awk '{ print $1 }' | dmenu $* -l 8)
+arg=$(cat /home/"$USER"/.config/ns-table | sort | awk '{ print $1 }' | dmenu $* -l 8)
 
 if [ "$arg" != "" ]; then
 	ns $arg
