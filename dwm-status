@@ -1,0 +1,9 @@
+export DISPLAY=:1
+export PATH="/usr/local/bin/:/usr/bin:$HOME/.scripts"
+
+RAM=$(free -h | grep Mem: | awk '{ print $3 }')
+TIME=$(date '+%I:%M %p')
+DATE=$(date '+%d/%m/%y')
+HDD=$(df -h | grep sda3 | awk '{print $4}')
+
+dwm -s "[ $HDD ] [ $RAM ] [ $TIME - $DATE ]"
