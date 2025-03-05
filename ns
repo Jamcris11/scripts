@@ -1,0 +1,41 @@
+shtcutsfile="$XDG_CONFIG_HOME/ns-table"
+shtcuts=$(cat $shtcutsfile)
+
+if [ "$1" = "-e" ]
+then
+	$EDITOR $shtcutsfile
+	exit 0
+elif [ "$1" = "-p" ]
+then
+	cat $shtcutsfile
+	exit 0
+elif [ "$1" = "-h" ]
+then
+	echo "-h: displays all possible command options for NetSearch"
+	echo "-e: opens up the alias table file in $EDITOR"
+	echo "-p: prints the alias table to the terminal"
+	exit 0
+elif [ "$1" = "-t" ]
+then
+	echo "$shtcutsfile"
+	exit 0
+fi
+
+val="$*"
+
+if [ "$val" = "" ]
+then
+	val="$(cat -)"
+fi
+
+
+url=$(tabler "$shtcutsfile" $val)
+http=$(echo $val | grep -E "(http|https)://*")
+
+if [[ $url == "" ]] && [[ $http = "" ]]; then
+	$BROWSER --new-tab --search "$val" &
+elif [[ $http != "" ]]; then
+	$BROWSER --new-tab $http &
+else
+	$BROWSER --new-tab $url &
+fi
