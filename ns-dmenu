@@ -1,0 +1,5 @@
+arg=$(cat $(ns -t) $HOME/.config/ns-hist | sort | awk '{ print $1 }' | dmenu $* -l 8)
+
+if [ "$arg" != "" ]; then
+	ns $arg
+fi
