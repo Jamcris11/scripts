@@ -1,0 +1,1 @@
+nvim -p src/$1.c include/$1.h
