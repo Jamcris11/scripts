@@ -1,0 +1,3 @@
+postdir=$HOME/sites/jimscorner.co.uk/content/posts
+
+ls -1t $postdir | dmenu | $EDITOR "$postdir/$(cat -)"
