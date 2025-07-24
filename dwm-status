@@ -1,4 +1,4 @@
-export DISPLAY=:1
+export DISPLAY=:0
 export PATH="/usr/local/bin/:/usr/bin:$HOME/.scripts"
 
 RAM=$(free -h | grep Mem: | awk '{ print $3 }')
