@@ -5,6 +5,13 @@ export PATH=$PATH:$HOME/.local/bin
 WALLPAPER_DIR=$HOME/media/wallpapers/
 WALLPAPER_IMG=$(sxiv -otb $WALLPAPER_DIR | head -n 1)
 
-wal -n -l -i "$WALLPAPER_IMG" -o $HOME/.scripts/update-xresources
-#cp $WALLPAPER_IMG ~/.cache/wal/wal
-feh --bg-fill "$WALLPAPER_IMG"
+if [ "$WALLPAPER_IMG" = "" ]; then
+	exit 1 
+fi
+
+if wal -n -i "$WALLPAPER_IMG" -o $HOME/.scripts/update-xresources ; then
+	feh --bg-fill "$WALLPAPER_IMG"
+else
+	notify-send "Failed to set wallpaper" 
+	exit 1
+fi
