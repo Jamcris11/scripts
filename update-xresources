@@ -3,18 +3,18 @@
 XRF=$HOME/.config/X11/xresources
 
 pywal_color() {
-	sed "$1!d" ~/.cache/wal/colors
+	sed "$1q;d" ~/.cache/wal/colors
 }
 
-sed -i "s/Sxiv.background\:.*/Sxiv.background\: $(pywal_color 8)/" $XRF
-sed -i "s/Sxiv.foreground\:.*/Sxiv.foreground\: $(pywal_color 9)/" $XRF
+sed -i "s/Sxiv.background\:.*/Sxiv.background\: $(pywal_color 9)/" $XRF
+sed -i "s/Sxiv.foreground\:.*/Sxiv.foreground\: $(pywal_color 8)/" $XRF
 
-sed -i "s/dwm.normbgcolor\:.*/dwm.normbgcolor\: $(pywal_color 8)/" $XRF
-sed	-i "s/dwm.normbordercolor\:.*/dwm.normbordercolor\: $(pywal_color 1)/" $XRF
-sed	-i "s/dwm.normfgcolor\:.*/dwm.normfgcolor\: $(pywal_color 9)/" $XRF
-sed	-i "s/dwm.selbgcolor\:.*/dwm.selbgcolor\: $(pywal_color 8)/" $XRF
-sed	-i "s/dwm.selbordercolor\:.*/dwm.selbordercolor\: $(pywal_color 2)/" $XRF
-sed	-i "s/dwm.selfgcolor\:.*/dwm.selfgcolor\: $(pywal_color 7)/" $XRF
+sed -i "s/dwm.normbgcolor\:.*/dwm.normbgcolor\: $(pywal_color 1)/" $XRF
+sed	-i "s/dwm.normbordercolor\:.*/dwm.normbordercolor\: $(pywal_color 14)/" $XRF
+sed	-i "s/dwm.normfgcolor\:.*/dwm.normfgcolor\: $(pywal_color 8)/" $XRF
+sed	-i "s/dwm.selbgcolor\:.*/dwm.selbgcolor\: $(pywal_color 2)/" $XRF
+sed	-i "s/dwm.selbordercolor\:.*/dwm.selbordercolor\: $(pywal_color 8)/" $XRF
+sed	-i "s/dwm.selfgcolor\:.*/dwm.selfgcolor\: $(pywal_color 3)/" $XRF
 
 sed	-i "s/st.color0:.*/st.color0: $(pywal_color 1)/" $XRF
 sed	-i "s/st.color1:.*/st.color1: $(pywal_color 2)/" $XRF
@@ -32,3 +32,5 @@ sed	-i "s/st.color12:.*/st.color12: $(pywal_color 13)/" $XRF
 sed	-i "s/st.color13:.*/st.color13: $(pywal_color 14)/" $XRF
 sed	-i "s/st.color14:.*/st.color14: $(pywal_color 15)/" $XRF
 sed	-i "s/st.color15:.*/st.color15: $(pywal_color 16)/" $XRF
+sed	-i "s/st.background:.*/st.background: $(pywal_color 1)/" $XRF
+sed	-i "s/st.foreground:.*/st.foreground: $(pywal_color 8)/" $XRF
