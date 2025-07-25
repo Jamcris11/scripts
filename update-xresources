@@ -14,7 +14,7 @@ sed	-i "s/dwm.normbordercolor\:.*/dwm.normbordercolor\: $(pywal_color 14)/" $XRF
 sed	-i "s/dwm.normfgcolor\:.*/dwm.normfgcolor\: $(pywal_color 8)/" $XRF
 sed	-i "s/dwm.selbgcolor\:.*/dwm.selbgcolor\: $(pywal_color 2)/" $XRF
 sed	-i "s/dwm.selbordercolor\:.*/dwm.selbordercolor\: $(pywal_color 8)/" $XRF
-sed	-i "s/dwm.selfgcolor\:.*/dwm.selfgcolor\: $(pywal_color 3)/" $XRF
+sed	-i "s/dwm.selfgcolor\:.*/dwm.selfgcolor\: $(pywal_color 8)/" $XRF
 
 sed	-i "s/st.color0:.*/st.color0: $(pywal_color 1)/" $XRF
 sed	-i "s/st.color1:.*/st.color1: $(pywal_color 2)/" $XRF
