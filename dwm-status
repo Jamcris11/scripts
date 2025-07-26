@@ -5,4 +5,4 @@ TIME=$(date '+%I:%M %p')
 DATE=$(date '+%b %e')
 HDD=$(df -h | grep sda3 | awk '{print $4}')
 
-dwm -s " [ $HDD | $RAM | $DATE | $TIME ] "
+dwm -s " $HDD | $RAM | $DATE | $TIME "
