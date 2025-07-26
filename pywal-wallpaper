@@ -15,3 +15,11 @@ else
 	notify-send "Failed to set wallpaper" 
 	exit 1
 fi
+
+if command -v pywalfox ; then
+	pywalfox update
+fi
+
+if command -v pywal-discord ; then
+	pywal-discord
+fi
