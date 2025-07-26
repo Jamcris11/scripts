@@ -1,5 +1,12 @@
+#!/usr/bin/env bash
+
 shtcutsfile="$XDG_CONFIG_HOME/ns-table"
 shtcuts=$(cat $shtcutsfile)
+
+if ! command -v tabler >/dev/null ; then
+	echo "tabler must be installed to use this script!"
+	exit 1
+fi
 
 if [ "$1" = "-e" ]
 then
