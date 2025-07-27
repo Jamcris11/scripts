@@ -6,31 +6,40 @@ pywal_color() {
 	sed "$1q;d" ~/.cache/wal/colors
 }
 
-sed -i "s/Sxiv.background\:.*/Sxiv.background\: $(pywal_color 9)/" $XRF
-sed -i "s/Sxiv.foreground\:.*/Sxiv.foreground\: $(pywal_color 8)/" $XRF
+xresource_set() {
+	if ! grep -q $1 $XRF ; then
+		echo "$1: $2" >> $XRF
+	else 
+		sed -i "s/$1\:.*/$1\: $(pywal_color $2)/" $XRF
+	fi
+}
 
-sed -i "s/dwm.normbgcolor\:.*/dwm.normbgcolor\: $(pywal_color 1)/" $XRF
-sed	-i "s/dwm.normbordercolor\:.*/dwm.normbordercolor\: $(pywal_color 14)/" $XRF
-sed	-i "s/dwm.normfgcolor\:.*/dwm.normfgcolor\: $(pywal_color 8)/" $XRF
-sed	-i "s/dwm.selbgcolor\:.*/dwm.selbgcolor\: $(pywal_color 2)/" $XRF
-sed	-i "s/dwm.selbordercolor\:.*/dwm.selbordercolor\: $(pywal_color 8)/" $XRF
-sed	-i "s/dwm.selfgcolor\:.*/dwm.selfgcolor\: $(pywal_color 8)/" $XRF
+xresource_set "Sxiv.background" 9
+xresource_set "Sxiv.foreground" 8
 
-sed	-i "s/st.color0:.*/st.color0: $(pywal_color 1)/" $XRF
-sed	-i "s/st.color1:.*/st.color1: $(pywal_color 2)/" $XRF
-sed	-i "s/st.color2:.*/st.color2: $(pywal_color 3)/" $XRF
-sed	-i "s/st.color3:.*/st.color3: $(pywal_color 4)/" $XRF
-sed	-i "s/st.color4:.*/st.color4: $(pywal_color 5)/" $XRF
-sed	-i "s/st.color5:.*/st.color5: $(pywal_color 6)/" $XRF
-sed	-i "s/st.color6:.*/st.color6: $(pywal_color 7)/" $XRF
-sed	-i "s/st.color7:.*/st.color7: $(pywal_color 8)/" $XRF
-sed	-i "s/st.color8:.*/st.color8: $(pywal_color 9)/" $XRF
-sed	-i "s/st.color9:.*/st.color9: $(pywal_color 10)/" $XRF
-sed	-i "s/st.color10:.*/st.color10: $(pywal_color 11)/" $XRF
-sed	-i "s/st.color11:.*/st.color11: $(pywal_color 12)/" $XRF
-sed	-i "s/st.color12:.*/st.color12: $(pywal_color 13)/" $XRF
-sed	-i "s/st.color13:.*/st.color13: $(pywal_color 14)/" $XRF
-sed	-i "s/st.color14:.*/st.color14: $(pywal_color 15)/" $XRF
-sed	-i "s/st.color15:.*/st.color15: $(pywal_color 16)/" $XRF
-sed	-i "s/st.background:.*/st.background: $(pywal_color 1)/" $XRF
-sed	-i "s/st.foreground:.*/st.foreground: $(pywal_color 8)/" $XRF
+xresource_set "dwm.normbgcolor" 1
+xresource_set "dwm.normbordercolor" 14
+xresource_set "dwm.normfgcolor" 8
+xresource_set "dwm.selbgcolor" 2
+xresource_set "dwm.selbordercolor" 8
+xresource_set "dwm.selfgcolor" 8
+
+xresource_set "st.color0" 1
+xresource_set "st.color1" 2
+xresource_set "st.color2" 3
+xresource_set "st.color3" 4
+xresource_set "st.color4" 5
+xresource_set "st.color5" 6
+xresource_set "st.color6" 7
+xresource_set "st.color7" 8
+xresource_set "st.color8" 9
+xresource_set "st.color9" 10
+xresource_set "st.color10" 11
+xresource_set "st.color11" 12
+xresource_set "st.color12" 13
+xresource_set "st.color13" 14
+xresource_set "st.color14" 15
+xresource_set "st.color15" 16
+xresource_set "st.background" 1
+xresource_set "st.foreground" 8
+
