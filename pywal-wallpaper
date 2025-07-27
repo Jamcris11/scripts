@@ -3,14 +3,18 @@
 export PATH=$PATH:$HOME/.local/bin
 
 WALLPAPER_DIR=$HOME/media/wallpapers/
-WALLPAPER_IMG=$(sxiv -otb $WALLPAPER_DIR | head -n 1)
+WALLPAPER_IMG=$(sxiv -otbf $WALLPAPER_DIR | head -n 1)
 
 if [ "$WALLPAPER_IMG" = "" ]; then
 	exit 1 
 fi
 
 if wal -n -i "$WALLPAPER_IMG" -o $HOME/.scripts/update-xresources ; then
-	feh --bg-fill "$WALLPAPER_IMG"
+	feh --no-fehbg --bg-scale "$WALLPAPER_IMG"
+
+	if command -v xdotool ; then
+		xdotool key Super_L+Shift_L+q
+	fi
 else
 	notify-send "Failed to set wallpaper" 
 	exit 1
