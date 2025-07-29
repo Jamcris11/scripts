@@ -5,7 +5,7 @@ param=${2:-a}
 
 c_template="#include \"$file.h\""
 
-h_guard="$(echo $file | uppercase | sed 's|/|_|g')_H"
+h_guard="$(echo $file | tr '[:lower:]' '[:upper:]' | sed 's|/|_|g')_H"
 h_template="#ifndef $h_guard\n#define $h_guard\n\n#endif // $h_guard"
 
 if [ $param != "-h" ]; then
