@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+IFS=$'\n'
+
+export XAUTHORITY="$HOME"/.Xauthority
+export DISPLAY=:0
+
+export $(dbus-launch)
+
+if ! command -v calcurse >/dev/null ; then
+	echo "calcurse must be installed for daily reminders to work!"
+	exit 1
+fi
+
+items=$(calcurse -Q --from today| grep "\*" | awk '{ $1=""; print }' | sed 's/^[ \t]*//;s/[ \t]*$//')
+
+notify-send "Daily reminder" "$items" -t 0
