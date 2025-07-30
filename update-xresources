@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 XRF=$HOME/.config/X11/xresources
+DUNST=$HOME/.config/dunst/dunstrc
 
 pywal_color() {
 	sed "$1q;d" ~/.cache/wal/colors
@@ -43,3 +44,5 @@ xresource_set "st.color15" 16
 xresource_set "st.background" 1
 xresource_set "st.foreground" 8
 
+sed -e "s|background = \".*\"|background = \"$(pywal_color 1)\"|g" \
+	-e "s|foreground = \".*\"|foreground = \"$(pywal_color 8)\"|g" -i $DUNST
