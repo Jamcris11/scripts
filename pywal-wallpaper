@@ -10,7 +10,7 @@ if [ "$WALLPAPER_IMG" = "" ]; then
 fi
 
 if wal -n -i "$WALLPAPER_IMG" -o $HOME/.scripts/update-xresources ; then
-	feh --no-fehbg --bg-scale "$WALLPAPER_IMG"
+	feh --no-fehbg --bg-fill "$WALLPAPER_IMG"
 
 	if command -v xdotool ; then
 		xdotool key Super_L+Shift_L+q
