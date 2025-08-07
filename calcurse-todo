@@ -1,0 +1,1 @@
+calcurse -Q | grep '[0-9+]\.' | sed 's|[0-9+]. ||g'
