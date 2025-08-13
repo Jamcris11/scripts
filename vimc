@@ -1,1 +1,5 @@
-nvim -p src/$1.c include/$1.h
+#!/usr/bin/env bash
+
+$EDITOR $(find . -iname '*.c' -o -iname '*.h' | dmenu -b -w $(xdotool getactivewindow) -l 20)
+
+
