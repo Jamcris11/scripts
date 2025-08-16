@@ -1,0 +1,5 @@
+wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+if command -v dwm-status ; then
+	dwm-status
+fi
