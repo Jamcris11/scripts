@@ -1,8 +1,23 @@
 #!/usr/bin/env bash
 
+VOLPER=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{ print $2*100 }')
+ISMUTED=$(wpctl status | grep "\*" | head -1 | grep -o MUTED)
+
+if [ "$ISMUTED" = "MUTED" ] ; then
+	VOL=" 0%"
+elif [ "$VOLPER" -eq 0 ] ; then
+	VOL=" $VOLPER%"
+elif [ "$VOLPER" -lt 50 ] ; then
+	VOL=" $VOLPER%"
+elif [ "$VOLPER" -lt 90 ] ; then
+	VOL=" $VOLPER%"
+else
+	VOL="!$VOLPER%"
+fi
+
+HDD=$(df -h | grep sda3 | awk '{print $4}')
 RAM=$(free -h | grep Mem: | awk '{ print $3 }')
 TIME=$(date '+%I:%M %p')
 DATE=$(date '+%b %e')
-HDD=$(df -h | grep sda3 | awk '{print $4}')
 
-dwm -s " $HDD | $RAM | $DATE | $TIME "
+dwm -s " $VOL | $HDD | $RAM | $DATE | $TIME "
