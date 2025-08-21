@@ -9,8 +9,8 @@ if [ "$WALLPAPER_IMG" = "" ]; then
 	exit 1 
 fi
 
-if wal -n -i "$WALLPAPER_IMG" -o $HOME/.scripts/update-xresources ; then
-	feh --no-fehbg --bg-fill "$WALLPAPER_IMG"
+if wal -i "$WALLPAPER_IMG" -n -o $HOME/.scripts/update-xresources ; then
+	feh --bg-fill --no-fehbg "$WALLPAPER_IMG"
 
 	if command -v xdotool ; then
 		xdotool key Super_L+Shift_L+q
