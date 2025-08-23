@@ -19,28 +19,33 @@ then
 elif [ "$1" = "-h" ]
 then
 	echo "-h: displays all possible command options for NetSearch"
-	echo "-e: opens up the alias table file in $EDITOR"
+	echo "-e: opens up the alias table file in \$EDITOR"
 	echo "-p: prints the alias table to the terminal"
+	echo "-t: prints location of ns-table"
+	echo "-o: prints key value to stdout"
 	exit 0
 elif [ "$1" = "-t" ]
 then
 	echo "$shtcutsfile"
 	exit 0
-fi
-
-val="$*"
-
-if [ "$val" = "" ]
+elif [ "$1" = "-o" ]
 then
-	val="$(cat -)"
+	tabler "$shtcutsfile" $2
+	exit 0
 fi
 
+key="$*"
 
-url=$(tabler "$shtcutsfile" $val)
-http=$(echo $val | grep -E "(http|https)://*")
+if [ "$key" = "" ]
+then
+	key="$(cat -)"
+fi
+
+url=$(tabler "$shtcutsfile" $key)
+http=$(echo $key | grep -E "(http|https)://*")
 
 if [[ $url == "" ]] && [[ $http = "" ]]; then
-	$BROWSER --new-tab --search "$val" &
+	$BROWSER --new-tab --search "$key" &
 elif [[ $http != "" ]]; then
 	$BROWSER --new-tab $http &
 else
