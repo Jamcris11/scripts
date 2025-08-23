@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Copyright (c) 2025 Jim
+# /
+#
+# A script to make minimal WebP animations from video files.
+# Use for putting animations on my website/CDN/GitHub
+
+ffmpeg -y -i $1 -filter_complex "fps=12,scale=480:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=24[p];[s1][p]paletteuse=dither=bayer" -lossless 1 -compression_level 6 -loop 0 $2
