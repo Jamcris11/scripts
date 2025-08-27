@@ -1,1 +1,6 @@
+#!/usr/bin/env bash
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
+
 calcurse -Q | grep '[0-9+]\.' | sed 's|[0-9+]. ||g'
+

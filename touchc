@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
 
 file=$1
 param=${2:-a}

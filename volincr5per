@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
 
-#wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 amixer -D pulse sset Master 5%+
 
 if command -v dwm-status ; then

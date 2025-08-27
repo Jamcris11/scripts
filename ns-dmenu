@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
+
 arg=$(ns -p | sort | awk '{ print $1 }' | dmenu $* -l 8)
 
 if [ "$arg" != "" ]; then

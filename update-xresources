@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
 
 XRF=$HOME/.config/X11/xresources
 DUNST=$HOME/.config/dunst/dunstrc

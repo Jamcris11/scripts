@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
 
 $EDITOR $(find . -iname '*.c' -o -iname '*.h' | dmenu -b -w $(xdotool getactivewindow) -l 20)
 

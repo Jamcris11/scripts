@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
 
 shtcutsfile="$XDG_CONFIG_HOME/ns-table"
 shtcuts=$(cat $shtcutsfile)
@@ -18,11 +20,12 @@ then
 	exit 0
 elif [ "$1" = "-h" ]
 then
-	echo "-h: displays all possible command options for NetSearch"
-	echo "-e: opens up the alias table file in \$EDITOR"
-	echo "-p: prints the alias table to the terminal"
-	echo "-t: prints location of ns-table"
-	echo "-o: prints key value to stdout"
+	echo "usage: ns [-ept] [-o KEY] [KEY...]"
+	echo "	-h    	displays all possible command options for NetSearch"
+	echo "	-e    	opens up the alias table file in \$EDITOR"
+	echo "	-p    	prints the alias table to the terminal"
+	echo "	-t    	prints location of ns-table"
+	echo "	-o KEY	prints KEY value to stdout"
 	exit 0
 elif [ "$1" = "-t" ]
 then

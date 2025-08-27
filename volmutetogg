@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-#wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
 
 amixer -D pulse sset Master toggle
 

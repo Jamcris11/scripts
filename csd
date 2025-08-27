@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Copyright (c) 2025 Jim - jim@jimscorner.co.uk
+# /
 
 if [ "$1" = "" ]; then
 	echo "$(pwd)" > $XDG_CACHE_HOME/csd_directory
