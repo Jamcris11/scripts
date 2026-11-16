@@ -2,11 +2,11 @@
 # Copyright (c) 2025 Jim - jim@jimscorner.co.uk
 # /
 
-VOLPER=$(awk -F"[][]" '/Left:/ { print $2 }' <(amixer -D pulse get Master) | grep -o [0-9]*)
-MUTE=$(awk -F"[][]" '/Left:/ { print $4 }' <(amixer -D pulse get Master) )
+MUTE=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')
+VOLPER=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2'} | tr -d . | sed -e 's/^[[0]]*//g')
 
-if [ "$MUTE" = "off" ] ; then
-	VOL=" 0%"
+if [ "$MUTE" = "[MUTED]" ] ; then
+	VOL=""
 elif [ "$VOLPER" -eq 0 ] ; then
 	VOL=" $VOLPER%"
 elif [ "$VOLPER" -lt 50 ] ; then
@@ -17,7 +17,7 @@ else
 	VOL="!$VOLPER%"
 fi
 
-HDD=$(df -h | grep sda3 | awk '{print $4}')
+HDD=$(df -h | grep /dev/nvme0n1p3 | awk '{print $4}')
 RAM=$(free -h | grep Mem: | awk '{ print $3 }')
 TIME=$(date '+%I:%M %p')
 DATE=$(date '+%b %e')

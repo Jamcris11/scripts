@@ -2,7 +2,8 @@
 # Copyright (c) 2025 Jim - jim@jimscorner.co.uk
 # /
 
-amixer -D pulse sset Master toggle
+#amixer -D pulse sset Master toggle
+wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 if command -v dwm-status ; then
 	dwm-status
